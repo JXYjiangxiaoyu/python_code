@@ -116,8 +116,8 @@ def execute_func(fileName, sheetName):
         real_result = api_request(api_url=url, api_data=data)  # 执行结果
         real_msg = real_result.get("msg")
         expected_msg = expected2.get("msg")
-        # print("执行的结果是：{}".format(real_msg))
-        # print("预期的结果是：{}".format(expected_msg))
+        print("执行的结果是：{}".format(real_msg))
+        print("预期的结果是：{}".format(expected_msg))
 
 
         if real_msg == expected_msg:
