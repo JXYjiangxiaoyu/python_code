@@ -66,7 +66,7 @@ import openpyxl  # 导入第三方库
 def api_request(api_url, api_data):
     qcd_header = {'X-Lemonban-Media-Type': 'lemonban.v2', 'Content-Type': 'application/json',
                   'Content-Type': 'application/json'}
-    response = requests.post(url=api_url, data=api_data, headers=qcd_header)  # 返回值，响应体
+    response = requests.post(url=api_url, json=api_data, headers=qcd_header)  # 返回值，响应体
     return response.json()  # 返回响应结果
 
 
