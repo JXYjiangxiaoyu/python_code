@@ -103,27 +103,28 @@ def write_result(fileName, sheetName, row, column, final_result):
 
 
 # 4.读取结果
-def execute_func(fileName,sheetName):
-	cases = read_data(fileName, sheetName)  # 变量接收函数的值
+def execute_func(fileName, sheetName):
+    cases = read_data(fileName, sheetName)  # 变量接收函数的值
 
-	for case in cases:
-		case_id = case.get("case_id")
-		url = case.get("url")  # 字典的取值方式1
-		data = case["data"]  # 字典的取值方式2
-		data = eval(data)  # 去掉引号的函数
-		expected = case.get("expected")
-		expected2 = eval(expected)
-		real_result = api_request(api_url=url, api_data=data)  # 执行结果
-		real_msg = real_result.get("msg")
-		expected_msg = expected2.get("msg")
-		print("执行的结果是：{}".format(real_msg))
-		print("预期的结果是：{}".format(expected_msg))
+    for case in cases:
+        case_id = case.get("case_id")
+        url = case.get("url")  # 字典的取值方式1
+        data = case["data"]  # 字典的取值方式2
+        data = eval(data)  # 去掉引号的函数
+
+        expected = case.get("expected")
+        expected2 = eval(expected)
+        real_result = api_request(api_url=url, api_data=data)  # 执行结果
+        real_msg = real_result.get("msg")
+        expected_msg = expected2.get("msg")
+        # print("执行的结果是：{}".format(real_msg))
+        # print("预期的结果是：{}".format(expected_msg))
 
 
-		if real_msg == expected_msg:
-			print(f'第{case_id}条用例执行通过')
-		else:
-			print(f'第{case_id}条用例执行不通过')
+        if real_msg == expected_msg:
+            print(f'第{case_id}条用例执行通过')
+        else:
+            print(f'第{case_id}条用例执行不通过')
 
 # 4.1 调用execute_func()
 execute_func("test_case_api.xlsx","register")
