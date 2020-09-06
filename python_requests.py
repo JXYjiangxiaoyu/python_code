@@ -122,10 +122,10 @@ def execute_func(fileName, sheetName):
         print("预期的结果是：{}".format(expected_msg))
 
 
-        if real_msg == expected_msg:
-            print(f'第{case_id}条用例执行通过')
-        else:
-            print(f'第{case_id}条用例执行不通过')
+        # if real_msg == expected_msg:
+        #     print(f'第{case_id}条用例执行通过')
+        # else:
+        #     print(f'第{case_id}条用例执行不通过')
 
 # 4.1 调用execute_func()
 execute_func("test_case_api.xlsx","register")
